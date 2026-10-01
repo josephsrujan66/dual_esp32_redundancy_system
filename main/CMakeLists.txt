@@ -1,0 +1,19 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "dht11.c"
+        "wifi_manager.c"
+        "sensor_data.c"
+        "network_task.c"
+        "redundancy.c"
+    INCLUDE_DIRS "."
+    PRIV_REQUIRES
+        esp_driver_gpio
+        esp_driver_rmt
+        esp_timer
+        esp_wifi
+        esp_event
+        esp_netif
+        nvs_flash
+        mqtt
+)

@@ -1,0 +1,49 @@
+menu "Dual ESP32 Configuration"
+
+    config ESP_WIFI_SSID
+        string "WiFi SSID"
+        default "Envision"
+        help
+            WiFi network name.
+
+    config ESP_WIFI_PASSWORD
+        string "WiFi Password"
+        default ""
+        help
+            WiFi network password.
+
+endmenu
+
+
+menu "Dual ESP32 Redundancy Configuration"
+
+    config REDUNDANCY_NODE_ID
+        string "Node ID"
+        default "A"
+        help
+            Logical identity of this ESP32 node.
+            Use A for the first ESP32 and B for the second ESP32.
+
+    config REDUNDANCY_PEER_NODE_ID
+        string "Peer Node ID"
+        default "B"
+        help
+            Logical identity of the other ESP32 node.
+            If this node is A, use B.
+            If this node is B, use A.
+
+    config REDUNDANCY_PEER_MAC
+        string "Peer MAC Address"
+        default ""
+        help
+            Wi-Fi STA MAC address of the other ESP32.
+            Format: AA:BB:CC:DD:EE:FF
+
+    config REDUNDANCY_HEARTBEAT_INTERVAL_MS
+        int "Heartbeat interval (ms)"
+        default 500
+        range 100 5000
+        help
+            Interval between ESP-NOW heartbeat messages.
+
+endmenu
